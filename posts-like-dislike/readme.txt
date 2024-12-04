@@ -3,8 +3,8 @@ Contributors: Happy Coders,regankhadgi
 Donate link: http://wphappycoders.com/
 Tags: post, page, like, dislike, like dislike
 Requires at least: 5.0
-Tested up to: 6.6
-Stable tag: 1.1.4
+Tested up to: 6.7
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,9 +45,16 @@ Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
 [posts_like_dislike id=post_id]
 Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
 
+
 = Custom Function = 
 `<?php echo do_shortcode('[posts_like_dislike id=post_id]');?>`
 Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
+
+If you are using in your single.php template file then you can use below code 
+`<?php 
+$id = get_the_ID();
+echo do_shortcode("[posts_like_dislike post_id='$id']");
+?>`
     
 
 == Installation ==
@@ -88,6 +95,9 @@ Yes you can undo like or dislike by clicking the like or dislike. You can also g
 7. Posts Like Dislike Design Settings
 
 == Changelog ==
+= 1.1.5 = 
+* Fix: Ommitted like dislike icon being appended in RSS content 
+
 = 1.1.4 = 
 * Fixed user ip related issue
 

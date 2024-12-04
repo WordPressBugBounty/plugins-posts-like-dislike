@@ -1,10 +1,8 @@
 <?php
 
 if (!class_exists('PLD_Hooks')) {
-    class PLD_Hooks extends PLD_Library
-    {
-        public function __construct()
-        {
+    class PLD_Hooks extends PLD_Library {
+        public function __construct() {
             parent::__construct();
             add_filter('the_content', array($this, 'posts_like_dislike'), 200); // hook to add html for like dislike
             add_action('pld_like_dislike_output', array($this, 'generate_like_dislike_html'), 10, 3);
@@ -12,27 +10,25 @@ if (!class_exists('PLD_Hooks')) {
             add_shortcode('posts_like_dislike', array($this, 'render_pld_shortcode'));
         }
 
-        public function posts_like_dislike($content)
-        {
-            include(PLD_PATH . '/inc/cores/like-dislike-render.php');
+        public function posts_like_dislike($content) {
+            if (!is_feed()) {
+                include(PLD_PATH . '/inc/cores/like-dislike-render.php');
+            }
             return $content;
         }
 
-        public function render_pld_shortcode($atts)
-        {
+        public function render_pld_shortcode($atts) {
             $content = '';
             $shortcode = true;
             include(PLD_PATH . '/inc/cores/like-dislike-render.php');
             return $content;
         }
 
-        public function generate_like_dislike_html($content, $shortcode, $atts)
-        {
+        public function generate_like_dislike_html($content, $shortcode, $atts) {
             include(PLD_PATH . '/inc/views/frontend/like-dislike-html.php');
         }
 
-        public function custom_styles()
-        {
+        public function custom_styles() {
             $pld_settings = $this->pld_settings;
             echo "<style>";
             if ($pld_settings['design_settings']['icon_color'] != '') {
