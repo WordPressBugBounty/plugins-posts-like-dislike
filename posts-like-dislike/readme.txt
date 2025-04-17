@@ -3,8 +3,8 @@ Contributors: Happy Coders,regankhadgi
 Donate link: http://wphappycoders.com/
 Tags: post, page, like, dislike, like dislike
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 1.1.5
+Tested up to: 6.8
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,9 @@ Yes you can undo like or dislike by clicking the like or dislike. You can also g
 7. Posts Like Dislike Design Settings
 
 == Changelog ==
+= 1.1.6 = 
+* Fix: User IP being saved in comments meta instead of post meta
+
 = 1.1.5 = 
 * Fix: Ommitted like dislike icon being appended in RSS content 
 

@@ -110,7 +110,7 @@ if (!class_exists('PLD_Ajax')) {
                     $liked_ips = get_post_meta($post_id, 'pld_ips', true);
                     $liked_ips = (empty($liked_ips)) ? array() : $liked_ips;
 
-                    $liked_ips_info = get_comment_meta($post_id, 'pld_ips_info', true);
+                    $liked_ips_info = get_post_meta($post_id, 'pld_ips_info', true);
                     $liked_ips_info = (empty($liked_ips_info)) ? array() : $liked_ips_info;
                     if (!in_array($user_ip, $liked_ips)) {
                         $liked_ips[] = $user_ip;
@@ -136,7 +136,7 @@ if (!class_exists('PLD_Ajax')) {
                         }
                         $liked_users_info[$current_user_id] = $type;
                         update_post_meta($post_id, 'pld_users', $liked_users);
-                        update_comment_meta($post_id, 'pld_users_info', $liked_users_info);
+                        update_post_meta($post_id, 'pld_users_info', $liked_users_info);
                     }
                 }
 
